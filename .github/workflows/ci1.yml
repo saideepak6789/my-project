@@ -17,13 +17,13 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  test:
+    runs-on: ${{ matrix.os }}
 
-    runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        os:[ubuntu-latest, windows-latest, macOS-latest]
-
+        os: [windows-latest, ubuntu-latest]
+    
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
